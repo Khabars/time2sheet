@@ -1,0 +1,16 @@
+<mvc:View xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="time2sheet.controller.login" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Welcome to TRADE2Me (beta)">
+		<content>
+			<Panel
+					headerText="Log in"
+					class="sapUiContentPadding sapUiMediumMarginBeginEnd alignCenter"
+					width="360px">
+					<HBox width="100%" id="firebaseui-auth-container"/>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>
+
+
+

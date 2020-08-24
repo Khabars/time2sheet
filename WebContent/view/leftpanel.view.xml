@@ -1,0 +1,29 @@
+<mvc:View xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+           controllerName="time2sheet.controller.leftpanel" xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page id = "leftPageId">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Avatar
+                        class = "sapUiTinyMarginBegin"
+                        id="leftPanelAvatarImg" src="{mLeft>/avatarIcon}" displaySize="XS"
+                        press= "handleMyProfilePress" backgroundColor="Placeholder"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Title
+                        class = "sapUiMediumMarginBegin sapUiLargeMarginEnd"
+                        id="leftPageTitle"
+                        textAlign="Center"/>
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <content>
+            <l:VerticalLayout class="sapUiMediumMarginBeginEnd sapUiMediumMarginTopBottom" visible="{device>/system/desktop}">
+                <Link text="ссылка" press="favoritePress"/> 
+            </l:VerticalLayout>
+            <VBox alignItems="Center" class="sapUiLargeMarginTopBottom" visible="{device>/system/phone}">
+                <Button text="ссылка" width="13rem" press="favoritePress" icon="sap-icon://unfavorite" class="sapUiTinyMarginBottom menuButton"/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

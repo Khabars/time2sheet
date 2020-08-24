@@ -1,0 +1,103 @@
+{
+	"_version": "0.0.1",
+	"sap.app": {
+		"_version": "0.0.1",
+		"id": "time2sheet",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{APP_TITLE}}",
+		"description": "{{APP_DESCRIPTION}}",
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"dataSources": {}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_belize"],
+		"icons": {
+			"icon": "sap-icon://product"
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": "time2sheet.view.App",
+		"dependencies": {
+			"minUI5Version": "1.40",
+			"libs": {
+				"sap.m": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "time2sheet.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": []
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "time2sheet.view",
+				"async": true,
+				"transition": "slide",
+				"bypassed": {
+					"target": "notfound"
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "login",
+				"target": "login"
+			}, {
+				"pattern": "menu",
+				"name": "leftpanel",
+				"target": "leftpanel"
+			}],
+			"targets": {
+				"login": {
+					"viewName": "login",
+					"controlAggregation": "pages",
+					"controlId": "App"
+				},
+				"mypage": {
+					"viewName": "mypage",
+					"controlAggregation": "pages",
+					"controlId": "App",
+					"viewLevel": 1
+				},
+				"leftpanel": {
+					"viewName": "leftpanel",
+					"parent": "mypage",
+					"controlAggregation": "masterPages",
+					"controlId": "SplitApp",
+					"viewLevel": 1
+				},
+				"notfound": {
+					"viewName": "notfound",
+					"controlAggregation": "pages",
+					"controlId": "App",
+					"transition": "show"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	}
+}
