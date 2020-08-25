@@ -41,7 +41,6 @@ sap.ui.define( [
 			var authUid = oEvent.user.uid;
 			var authFLname = oEvent.user.displayName;
 			var sphoneNumber = oEvent.user.phoneNumber;
-			var emailVerified = oEvent.user.emailVerified;
 			if (!sphoneNumber) {
 				var sphoneNumber = "+12345678910";
 			}
@@ -62,31 +61,13 @@ sap.ui.define( [
 			  };
 			var currentUserRef = firebase.firestore().collection("/users").doc(authUid);
 			var usersCollection = firebase.firestore().collection("/users");
-			if (!emailVerified) {
-				oRouter.navTo("emailverify");
-				return false;
-			}
 			currentUserRef.get().then(function (userDoc) {
 				if (userDoc.exists) {
 					console.log("loginSuccess");
-					if (this.toProduct) {
-						oRouter.navTo("goodsdetail", { product: this.toProduct });
-					} else if (this.toCollection) {
-						oRouter.navTo("goods", { collection: this.toCollection });
+					oRouter.navTo("main");
 					} else {
-						oRouter.navTo("news");
-					}
-					return false;
-				} else {
 					usersCollection.doc(authUid).set(oUserNew);
-					if (this.toProduct) {
-						oRouter.navTo("goodsdetail", { product: this.toProduct });
-					} else if (this.toCollection) {
-						oRouter.navTo("goods", { collection: this.toCollection });
-					} else {
-						oRouter.navTo("news");
-					}
-					return false;
+					oRouter.navTo("main");
 				}
 			}.bind(this));
 		}

@@ -18,6 +18,14 @@ sap.ui.define([
             this.oBusy.setBusyIndicatorDelay(0);
             this.setModel(this.createDeviceModel(), "device");
             this.getRouter().initialize();
+            var oModel = new JSONModel({
+                backTo: "goods",
+                backToParam: "my",
+                limit: 16,
+                fallbackAvatar: "https://firebasestorage.googleapis.com/v0/b/time2sheet-fa636.appspot.com/o/images%2Favatar-320.png?alt=media&token=ad90f582-ed4b-4a30-8a94-7ef261429030",
+                myAvatar: ""
+            });
+            this.setModel(oModel, "mComponent");
 
         },
         
